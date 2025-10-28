@@ -2,6 +2,7 @@ import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Bounce, ToastContainer, toast } from 'react-toastify';
+const SERVER_API = process.env.VITE_API_URL
 
 
 function Login() {
@@ -11,7 +12,7 @@ function Login() {
 
     const verifyUser=async()=>{
         try{
-        const resp=await axios.post('http://localhost:3000/api/user/signin',{
+        const resp=await axios.post(`${SERVER_API}/api/user/signin`,{
             username:username,
             password:password
         })
